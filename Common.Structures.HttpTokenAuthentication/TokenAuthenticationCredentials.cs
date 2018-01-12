@@ -1,20 +1,11 @@
-﻿using Common.Structures.HttpAuthentication;
-using System.Net.Http.Headers;
-
-namespace Common.Structures.HttpTokenAuthentication
+﻿namespace Common.Structures.HttpTokenAuthentication
 {
-    public class TokenAuthenticationCredentials : IHttpAuthentication
+    public class TokenAuthenticationCredentials : HttpAuthentication.HttpAuthentication
     {
         private const string token = nameof(token);
 
-        public TokenAuthenticationCredentials(string user, string secret)
+        public TokenAuthenticationCredentials(string secret) : base(token, secret)
         {
-            Secret = secret;
         }
-
-        public string Secret { get; set; }
-
-        public AuthenticationHeaderValue Header
-            => new AuthenticationHeaderValue(token, Secret);
     }
 }
