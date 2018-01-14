@@ -1,10 +1,10 @@
-﻿namespace Common.Structures.HttpTokenAuthentication
+﻿using Common.Structures.HttpAuthentication;
+
+namespace Common.Structures.HttpTokenAuthentication
 {
     public class TokenAuthenticationCredentials : HttpAuthentication.HttpAuthentication
     {
-        private const string token = nameof(token);
-
-        public TokenAuthenticationCredentials(string secret) : base(token, secret)
+        public TokenAuthenticationCredentials(string secret) : base(PrefixType.token, secret)
         {
         }
     }
